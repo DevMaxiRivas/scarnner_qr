@@ -68,7 +68,9 @@
                 });
 
                 if (code) {
-                    const data = JSON.parse(atob(code.data));
+                    alert(code.data);
+                    let datos_url = code.data.split("?p=");
+                    const data = JSON.parse(atob(datos_url[1]));
                     const texto = `
                         Cuit: ${data.cuit}
                         Importe: ${data.importe}
