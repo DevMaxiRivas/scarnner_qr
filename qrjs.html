@@ -68,7 +68,13 @@
                 });
 
                 if (code) {
-                    alert("Código QR detectado: " + code.data);
+                    const data = JSON.parse(atob(code.data));
+                    const texto = `
+                        Cuit: ${data.cuit}
+                        Importe: ${data.importe}
+                        Fecha: ${data.fecha}
+                    `;
+                    alert(texto);
                 } else {
                     qrResult.textContent = "Escaneando...";
                 }
